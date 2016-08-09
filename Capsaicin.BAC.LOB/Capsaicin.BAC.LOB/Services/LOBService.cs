@@ -14,6 +14,7 @@ namespace Capsaicin.BAC.LOB.Services
         protected readonly string GETDATADATE = "usp_LOB_GetDataDate";
         protected readonly string GETCOMMITMENTS = "usp_LOB_GetCommitments";
         protected readonly string GETTOTALSPENDBYMONTH = "usp_LOB_GetTotalSpendByMonth";
+        protected readonly string GETTOTALSPENDBYMEDIUM = "usp_LOB_GetTotalSpendByMedium";
 
         protected HttpContext _context;
 
@@ -76,6 +77,20 @@ namespace Capsaicin.BAC.LOB.Services
             };
 
             recs.load(GETTOTALSPENDBYMONTH, parms.MapToDictionary());
+            return XcelsiusFormat.ToXML(recs);
+        }
+
+        public string GetTotalSpendByMedium(NameValueCollection reqParms)
+        {
+            string dbContext = GetDBContext();
+            Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
+            GetTotalSpendByMediumParameters parms = new GetTotalSpendByMediumParameters()
+            {
+                Year = reqParms.Get("year"),
+                LOB = reqParms.Get("lob")
+            };
+
+            recs.load(GETTOTALSPENDBYMEDIUM, parms.MapToDictionary());
             return XcelsiusFormat.ToXML(recs);
         }
     }
