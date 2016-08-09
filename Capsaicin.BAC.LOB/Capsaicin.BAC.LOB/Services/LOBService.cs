@@ -22,9 +22,20 @@ namespace Capsaicin.BAC.LOB.Services
             _context = context;
         }
 
+        private string GetDBContext(){
+            string dbContext;
+
+            string option = _context.Request.Params["env"] ?? null;
+
+            dbContext = DBCONTEXT + (option == null ? "" : "_" + option);
+
+            return dbContext;
+        }
+
         public string GetDataDate()
         {
-            Records recs = RecordsFactory.getRecordsObject(null, DBCONTEXT, _context);
+            string dbContext = GetDBContext();
+            Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
             Dictionary<string, string> parms = new Dictionary<string, string>();
 
             recs.load(GETDATADATE, parms);
@@ -33,7 +44,8 @@ namespace Capsaicin.BAC.LOB.Services
 
         public string GetCommitments(NameValueCollection reqParms)
         {
-            Records recs = RecordsFactory.getRecordsObject(null, DBCONTEXT, _context);
+            string dbContext = GetDBContext();
+            Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
             GetCommitmentsParameters parms = new GetCommitmentsParameters()
             {
                 Year = reqParms.Get("year"),
@@ -45,7 +57,8 @@ namespace Capsaicin.BAC.LOB.Services
 
         public string GetTotalSpendByMonth(NameValueCollection reqParms)
         {
-            Records recs = RecordsFactory.getRecordsObject(null, DBCONTEXT, _context);
+            string dbContext = GetDBContext();
+            Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
             GetTotalSpendByMonthParameters parms = new GetTotalSpendByMonthParameters()
             {
                 Time1 = reqParms.Get("time1"),
