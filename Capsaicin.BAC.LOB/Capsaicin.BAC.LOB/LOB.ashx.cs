@@ -29,6 +29,10 @@ namespace Capsaicin.BAC.LOB
                     //LOB.ashx?action=GetDataDate
                     response = _service.GetDataDate();
                     break;
+                case "GETCOMMITMENTS":
+                    //LOB.ashx?action=GetCommitments&Year=2011
+                    response = _service.GetCommitments(context.Request.Params);
+                    break;
                 default:
                     response = "Error: Unknown action";
                     break;
