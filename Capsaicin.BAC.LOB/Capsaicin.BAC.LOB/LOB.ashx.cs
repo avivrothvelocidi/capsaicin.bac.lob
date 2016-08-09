@@ -45,6 +45,10 @@ namespace Capsaicin.BAC.LOB
                     //LOB.ashx?action=GetYOY1&year1=2015&year2=2016&year3=2017&grouping=Division
                     response = _service.GetYOY1(context.Request.Params);
                     break;
+                case "GETYOY2":
+                    //LOB.ashx?action=GetYOY2&year1=2015&year2=2016&year3=2017&filter=LOB&filterValue=GBM
+                    response = _service.GetYOY2(context.Request.Params);
+                    break;
                 default:
                     response = "Error: Unknown action";
                     break;
