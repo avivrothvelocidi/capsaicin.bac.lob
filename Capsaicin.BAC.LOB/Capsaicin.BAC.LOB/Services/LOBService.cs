@@ -10,7 +10,7 @@ namespace Capsaicin.BAC.LOB.Services
 {
     public class LOBService
     {
-        protected readonly string DBCONTEXT = "ParentCompanyContext";
+        protected readonly string DBCONTEXT = "LOBContext";
         protected readonly string GETDATADATE = "usp_LOB_GetDataDate";
 
         protected HttpContext _context;

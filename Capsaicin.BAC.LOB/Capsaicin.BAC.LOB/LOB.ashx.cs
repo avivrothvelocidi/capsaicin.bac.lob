@@ -26,7 +26,7 @@ namespace Capsaicin.BAC.LOB
             switch (action.Trim().ToUpper())
             {
                 case "GETDATADATE":
-                    //LOB.ashx?action=GetPeriods
+                    //LOB.ashx?action=GetDataDate
                     response = _service.GetDataDate();
                     break;
                 default:
