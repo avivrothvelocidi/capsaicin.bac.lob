@@ -6,7 +6,7 @@ using Capsaicin.BAC.LOB.Interfaces.ParameterModels;
 
 namespace Capsaicin.BAC.LOB.ParameterModels
 {
-    public class GetLOBFilterParameters : MonthRangeParameters
+    public class GetTopCampaignParameters : MonthRangeParameters
     {
     }
 }

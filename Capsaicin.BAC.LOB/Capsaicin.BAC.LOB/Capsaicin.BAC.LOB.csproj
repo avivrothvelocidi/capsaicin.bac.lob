@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DatabaseScripts\usp_LOB_GetCampaignFilter.sql" />
+    <Content Include="DatabaseScripts\usp_LOB_GetTopCampaign.sql" />
     <Content Include="DatabaseScripts\usp_LOB_GetDivisionFilter.sql" />
     <Content Include="DatabaseScripts\usp_LOB_GetLOBFilter.sql" />
     <Content Include="DatabaseScripts\usp_LOB_GetYOY2.sql" />
@@ -75,6 +76,8 @@
     </Compile>
     <Compile Include="ParameterModels\GetCampaignFilterParameters.cs" />
     <Compile Include="ParameterModels\GetDivisionFilterParameters.cs" />
+    <Compile Include="ParameterModels\GetTopCampaignParameters.cs" />
+    <Compile Include="ParameterModels\MonthRangeParameters.cs" />
     <Compile Include="ParameterModels\GetLOBFilterParameters.cs" />
     <Compile Include="ParameterModels\GetYOY2Parameters.cs" />
     <Compile Include="ParameterModels\GetYOY1Parameters.cs" />
