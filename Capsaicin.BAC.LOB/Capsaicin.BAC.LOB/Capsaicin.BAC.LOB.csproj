@@ -58,6 +58,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DatabaseScripts\usp_LOB_GetDivisionFilter.sql" />
     <Content Include="DatabaseScripts\usp_LOB_GetLOBFilter.sql" />
     <Content Include="DatabaseScripts\usp_LOB_GetYOY2.sql" />
     <Content Include="DatabaseScripts\usp_LOB_GetYOY1.sql" />
@@ -71,7 +72,8 @@
     <Compile Include="LOB.ashx.cs">
       <DependentUpon>LOB.ashx</DependentUpon>
     </Compile>
-    <Compile Include="ParameterModels\GetLOBParameters.cs" />
+    <Compile Include="ParameterModels\GetDivisionFilterParameters.cs" />
+    <Compile Include="ParameterModels\GetLOBFilterParameters.cs" />
     <Compile Include="ParameterModels\GetYOY2Parameters.cs" />
     <Compile Include="ParameterModels\GetYOY1Parameters.cs" />
     <Compile Include="ParameterModels\GetTotalSpendByMediumParameters.cs" />

@@ -53,6 +53,10 @@ namespace Capsaicin.BAC.LOB
                     //LOB.ashx?action=GetLOBFilter&startMonth=201601&endMonth=201612
                     response = _service.GetLOBFilter(context.Request.Params);
                     break;
+                case "GETDIVISIONFILTER":
+                    //
+                    response = _service.GetDivisionFilter(context.Request.Params);
+                    break;
                 default:
                     response = "Error: Unknown action";
                     break;

@@ -6,7 +6,7 @@ using Capsaicin.BAC.LOB.Interfaces.ParameterModels;
 
 namespace Capsaicin.BAC.LOB.ParameterModels
 {
-    public class GetLOBParameters : IProcParameters
+    public class GetLOBFilterParameters : IProcParameters
     {
 	    public string StartMonth {get;set;}
         public string EndMonth { get; set; }

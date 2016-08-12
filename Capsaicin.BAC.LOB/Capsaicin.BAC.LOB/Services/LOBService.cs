@@ -18,6 +18,7 @@ namespace Capsaicin.BAC.LOB.Services
         protected readonly string GETYOY1 = "usp_LOB_GetYOY1";
         protected readonly string GETYOY2 = "usp_LOB_GetYOY2";
         protected readonly string GETLOBFILTER = "usp_LOB_GetLOBFilter";
+        protected readonly string GETDIVISIONFILTER = "usp_LOB_GetDivisionFilter";
 
         protected HttpContext _context;
 
@@ -134,13 +135,29 @@ namespace Capsaicin.BAC.LOB.Services
         {
             string dbContext = GetDBContext();
             Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
-            GetLOBParameters parms = new GetLOBParameters()
+            GetLOBFilterParameters parms = new GetLOBFilterParameters()
             {
                 StartMonth = reqParms.Get("startMonth"),
                 EndMonth = reqParms.Get("endMonth"),
             };
 
             recs.load(GETLOBFILTER, parms.MapToDictionary());
+            return XcelsiusFormat.ToXML(recs);
+        }
+
+        public string GetDivisionFilter(NameValueCollection reqParms)
+        {
+            string dbContext = GetDBContext();
+            Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
+
+            GetDivisionFilterParameters parms = new GetDivisionFilterParameters()
+            {
+                StartMonth = reqParms.Get("startMonth"),
+                EndMonth = reqParms.Get("endMonth"),
+                LOB = reqParms.Get("lob") ?? ""
+            };
+
+            recs.load(GETDIVISIONFILTER, parms.MapToDictionary());
             return XcelsiusFormat.ToXML(recs);
         }
     }
