@@ -73,6 +73,10 @@ namespace Capsaicin.BAC.LOB
                     //LOB.ashx?action=GetML1&startMonth=201601&endMonth=201612&spendType=estimated&campaigns=%27Merrill%20EDGE%20Baseline%27
                     response = _service.GetML1(context.Request.Params);
                     break;
+                case "GETML2":
+                    //LOB.ashx?action=GetML2&startMonth=201601&endMonth=201612&spendType=estimated&campaigns=%27Merrill%20EDGE%20Baseline%27
+                    response = _service.GetML2(context.Request.Params);
+                    break;
                 default:
                     response = "Error: Unknown action";
                     break;

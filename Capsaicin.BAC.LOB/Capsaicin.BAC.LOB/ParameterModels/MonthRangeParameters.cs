@@ -11,7 +11,7 @@ namespace Capsaicin.BAC.LOB.ParameterModels
 	    public string StartMonth {get;set;}
         public string EndMonth { get; set; }
 
-        public Dictionary<string, string> MapToDictionary()
+        public virtual Dictionary<string, string> MapToDictionary()
         {
             Dictionary<string, string> parms = new Dictionary<string, string>();
 
