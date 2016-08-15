@@ -21,6 +21,7 @@ namespace Capsaicin.BAC.LOB.Services
         protected readonly string GETDIVISIONFILTER = "usp_LOB_GetDivisionFilter";
         protected readonly string GETCAMPAIGNFILTER = "usp_LOB_GetCampaignFilter";
         protected readonly string GETTOPCAMPAIGN = "usp_LOB_GetTopCampaign";
+        protected readonly string GETTITLE = "usp_LOB_GetTitle";
 
         protected HttpContext _context;
 
@@ -192,6 +193,22 @@ namespace Capsaicin.BAC.LOB.Services
             };
 
             recs.load(GETTOPCAMPAIGN, parms.MapToDictionary());
+            return XcelsiusFormat.ToXML(recs);
+        }
+
+        public string GetTitle(NameValueCollection reqParms)
+        {
+            string dbContext = GetDBContext();
+            Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
+
+            GetTitleParameters parms = new GetTitleParameters()
+            {
+                StartMonth = reqParms.Get("startMonth"),
+                EndMonth = reqParms.Get("endMonth"),
+                AllSpend = reqParms.Get("allSpend")
+            };
+
+            recs.load(GETTITLE, parms.MapToDictionary());
             return XcelsiusFormat.ToXML(recs);
         }
     }
