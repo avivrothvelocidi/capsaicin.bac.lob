@@ -42,7 +42,7 @@ namespace Capsaicin.BAC.LOB
                     response = _service.GetTotalSpendByMedium(context.Request.Params);
                     break;
                 case "GETYOY1":
-                    //LOB.ashx?action=GetYOY1&year1=2015&year2=2016&year3=2017&grouping=Division
+                    //LOB.ashx?action=GetYOY1&year1=2015&year2=2016&year3=2017&lob=GWIM
                     response = _service.GetYOY1(context.Request.Params);
                     break;
                 case "GETYOY2":

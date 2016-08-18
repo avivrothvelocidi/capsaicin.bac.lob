@@ -2,7 +2,7 @@
 	@Year1 nvarchar(4),
 	@Year2 nvarchar(4),
 	@Year3 nvarchar(4),
-	@Grouping nvarchar(255)
+	@LOB nvarchar(255)
 AS
 BEGIN
 
@@ -17,9 +17,9 @@ set @command = 'SELECT [Division], ' +
 	'SUM(Case When [the_year] = ''' + @Year2 + ''' then [spend_to_display] else NULL end) as Spend2, ' +
 	'SUM(Case When [the_year] = ''' + @Year3 + ''' then [spend_to_display] else NULL end) as Spend3 ' +
 'From v_LOB_OUTPUT_YOY_comparison ' +
-'where [LOB] = ''GCSBB'' ' + 
-'Group By [' + @Grouping + '] ' +
-'Order By [' + @Grouping + '] ASC '
+'where [LOB] = ''' + @LOB + ''' ' + 
+'Group By [Division] ' +
+'Order By [Division] ASC '
 
 EXEC sp_sqlexec @command
 

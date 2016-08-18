@@ -11,7 +11,7 @@ namespace Capsaicin.BAC.LOB.ParameterModels
 	    public string Year1 {get;set;}
         public string Year2 { get; set; }
         public string Year3 { get; set; }
-        public string Grouping { get; set; }
+        public string LOB { get; set; }
 
         public Dictionary<string, string> MapToDictionary()
         {
@@ -20,7 +20,7 @@ namespace Capsaicin.BAC.LOB.ParameterModels
             parms.Add("Year1", Year1);
             parms.Add("Year2", Year2);
             parms.Add("Year3", Year3);
-            parms.Add("Grouping", Grouping);
+            parms.Add("LOB", LOB);
 
             return parms;
         }

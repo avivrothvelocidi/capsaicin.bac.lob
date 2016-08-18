@@ -112,7 +112,7 @@ namespace Capsaicin.BAC.LOB.Services
                 Year1 = reqParms.Get("year1"),
                 Year2 = reqParms.Get("year2"),
                 Year3 = reqParms.Get("year3"),
-                Grouping = reqParms.Get("grouping")
+                LOB = reqParms.Get("lob")
             };
 
             recs.load(GETYOY1, parms.MapToDictionary());
