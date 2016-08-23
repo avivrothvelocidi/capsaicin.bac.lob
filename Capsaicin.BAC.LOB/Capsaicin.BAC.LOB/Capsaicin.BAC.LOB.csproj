@@ -58,6 +58,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DatabaseScripts\usp_LOB_GetMarkets.sql" />
     <Content Include="DatabaseScripts\usp_LOB_GetSpendByLOB.sql" />
     <Content Include="DatabaseScripts\usp_LOB_GetMerrillLynch.sql" />
     <Content Include="DatabaseScripts\usp_LOB_GetMLBreakdown.sql" />
@@ -83,6 +84,7 @@
     <Compile Include="ParameterModels\GetCampaignFilterParameters.cs" />
     <Compile Include="ParameterModels\GetDivisionFilterParameters.cs" />
     <Compile Include="ParameterModels\AllFilterParameters.cs" />
+    <Compile Include="ParameterModels\GetMarketsParameters.cs" />
     <Compile Include="ParameterModels\GetSpendByLOBParameters.cs" />
     <Compile Include="ParameterModels\GetTopCampaignParameters.cs" />
     <Compile Include="ParameterModels\GetTitleParameters.cs" />

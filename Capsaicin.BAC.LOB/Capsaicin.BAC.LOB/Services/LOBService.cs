@@ -26,6 +26,7 @@ namespace Capsaicin.BAC.LOB.Services
         protected readonly string GETSPENDBYLOB = "usp_LOB_GetSpendByLOB";
         protected readonly string GETMLBREAKDOWN = "usp_LOB_GetMLBreakdown";
         protected readonly string GETROLLUP = "usp_LOB_GetRollup";
+        protected readonly string GETMARKETS = "usp_LOB_GetMarkets";
 
         protected HttpContext _context;
 
@@ -291,6 +292,35 @@ namespace Capsaicin.BAC.LOB.Services
             };
 
             recs.load(GETROLLUP, parms.MapToDictionary());
+            return XcelsiusFormat.ToXML(recs);
+        }
+
+        public string GetMarkets(NameValueCollection reqParms)
+        {
+            string dbContext = GetDBContext();
+            Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
+
+            GetMarketsParameters parms = new GetMarketsParameters()
+            {
+                Market1 = reqParms.Get("market1"),
+                Market2 = reqParms.Get("market2"),
+                Market3 = reqParms.Get("market3"),
+                Market4 = reqParms.Get("market4"),
+                Market5 = reqParms.Get("market5"),
+                Market6 = reqParms.Get("market6"),
+                Market7 = reqParms.Get("market7"),
+                Market8 = reqParms.Get("market8"),
+                Market9 = reqParms.Get("market9"),
+                Market10 = reqParms.Get("market10"),
+                Market11 = reqParms.Get("market11"),
+                Market12 = reqParms.Get("market12"),
+                Market13 = reqParms.Get("market13"),
+                Market14 = reqParms.Get("market14"),
+                Market15 = reqParms.Get("market15"),
+                Market16 = reqParms.Get("market16")
+            };
+
+            recs.load(GETMARKETS, parms.MapToDictionary());
             return XcelsiusFormat.ToXML(recs);
         }
     }
