@@ -60,6 +60,7 @@
   <ItemGroup>
     <Content Include="DatabaseScripts\usp_LOB_GetSpendByLOB.sql" />
     <Content Include="DatabaseScripts\usp_LOB_GetMerrillLynch.sql" />
+    <Content Include="DatabaseScripts\usp_LOB_GetMLBreakdown.sql" />
     <Content Include="DatabaseScripts\usp_LOB_GetTitle.sql" />
     <Content Include="DatabaseScripts\usp_LOB_GetCampaignFilter.sql" />
     <Content Include="DatabaseScripts\usp_LOB_GetTopCampaign.sql" />

@@ -77,6 +77,10 @@ namespace Capsaicin.BAC.LOB
                     //LOB.ashx?action=GetSpendByLOB&startMonth=201601&endMonth=201612&lob='GWIM','GBM'&division='GBM','GCB'&campaign='Global Rgn GBAM BBG-SEM'&spendType='Actual'&isLOBGrouping=1
                     response = _service.GetSpendByLOB(context.Request.Params);
                     break;
+                case "GETMLBREAKDOWN":
+                    //LOB.ashx?action=GetMLBreakdown&startMonth=201601&endMonth=201612
+                    response = _service.GetMLBreakdown(context.Request.Params);
+                    break;
                 default:
                     response = "Error: Unknown action";
                     break;

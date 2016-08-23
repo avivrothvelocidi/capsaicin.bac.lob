@@ -24,6 +24,7 @@ namespace Capsaicin.BAC.LOB.Services
         protected readonly string GETTITLE = "usp_LOB_GetTitle";
         protected readonly string GETML = "usp_LOB_GetMerrillLynch";
         protected readonly string GETSPENDBYLOB = "usp_LOB_GetSpendByLOB";
+        protected readonly string GETMLBREAKDOWN = "usp_LOB_GetMLBreakdown";
 
         protected HttpContext _context;
 
@@ -260,6 +261,21 @@ namespace Capsaicin.BAC.LOB.Services
             };
 
             recs.load(GETSPENDBYLOB, parms.MapToDictionary());
+            return XcelsiusFormat.ToXML(recs);
+        }
+
+        public string GetMLBreakdown(NameValueCollection reqParms)
+        {
+            string dbContext = GetDBContext();
+            Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
+
+            MonthRangeParameters parms = new MonthRangeParameters()
+            {
+                StartMonth = reqParms.Get("startMonth"),
+                EndMonth = reqParms.Get("endMonth")
+            };
+
+            recs.load(GETMLBREAKDOWN, parms.MapToDictionary());
             return XcelsiusFormat.ToXML(recs);
         }
     }
