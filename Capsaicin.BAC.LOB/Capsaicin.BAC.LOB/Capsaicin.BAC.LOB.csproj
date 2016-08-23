@@ -58,8 +58,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DatabaseScripts\usp_LOB_GetMerrillLynch2.sql" />
-    <Content Include="DatabaseScripts\usp_LOB_GetMerrillLynch1.sql" />
+    <Content Include="DatabaseScripts\usp_LOB_GetMerrillLynch.sql" />
     <Content Include="DatabaseScripts\usp_LOB_GetTitle.sql" />
     <Content Include="DatabaseScripts\usp_LOB_GetCampaignFilter.sql" />
     <Content Include="DatabaseScripts\usp_LOB_GetTopCampaign.sql" />

@@ -8,15 +8,21 @@ namespace Capsaicin.BAC.LOB.ParameterModels
 {
     public class GetMLParameters : MonthRangeParameters
     {
-	    public string Campaigns {get;set;}
+	    public string LOB {get;set;}
+        public string Division { get; set; }
+        public string Campaign { get; set; }
         public string SpendType { get; set; }
+        public string ResultType { get; set; }
 
         public override Dictionary<string, string> MapToDictionary()
         {
             Dictionary<string, string> parms = base.MapToDictionary();
 
-            parms.Add("Campaigns", Campaigns);
+            parms.Add("LOB", LOB);
+            parms.Add("Division", Division);
+            parms.Add("Campaign", Campaign);
             parms.Add("SpendType", SpendType);
+            parms.Add("ResultType", ResultType);
 
             return parms;
         }

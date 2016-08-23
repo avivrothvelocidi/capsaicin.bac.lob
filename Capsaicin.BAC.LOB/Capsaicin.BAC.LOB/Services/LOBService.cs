@@ -22,8 +22,7 @@ namespace Capsaicin.BAC.LOB.Services
         protected readonly string GETCAMPAIGNFILTER = "usp_LOB_GetCampaignFilter";
         protected readonly string GETTOPCAMPAIGN = "usp_LOB_GetTopCampaign";
         protected readonly string GETTITLE = "usp_LOB_GetTitle";
-        protected readonly string GETML1 = "usp_LOB_GetMerrillLynch1";
-        protected readonly string GETML2 = "usp_LOB_GetMerrillLynch2";
+        protected readonly string GETML = "usp_LOB_GetMerrillLynch";
 
         protected HttpContext _context;
 
@@ -223,7 +222,7 @@ namespace Capsaicin.BAC.LOB.Services
             return XcelsiusFormat.ToXML(recs);
         }
 
-        public string GetML1(NameValueCollection reqParms)
+        public string GetMerrillLynch(NameValueCollection reqParms)
         {
             string dbContext = GetDBContext();
             Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
@@ -232,28 +231,14 @@ namespace Capsaicin.BAC.LOB.Services
             {
                 StartMonth = reqParms.Get("startMonth"),
                 EndMonth = reqParms.Get("endMonth"),
-                Campaigns = reqParms.Get("campaigns"),
-                SpendType = reqParms.Get("spendType")
+                LOB = reqParms.Get("lob"),
+                Division = reqParms.Get("division"),
+                Campaign = reqParms.Get("campaign"),
+                SpendType = reqParms.Get("spendType"),
+                ResultType = reqParms.Get("resultType")
             };
 
-            recs.load(GETML1, parms.MapToDictionary());
-            return XcelsiusFormat.ToXML(recs);
-        }
-
-        public string GetML2(NameValueCollection reqParms)
-        {
-            string dbContext = GetDBContext();
-            Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
-
-            GetMLParameters parms = new GetMLParameters()
-            {
-                StartMonth = reqParms.Get("startMonth"),
-                EndMonth = reqParms.Get("endMonth"),
-                Campaigns = reqParms.Get("campaigns"),
-                SpendType = reqParms.Get("spendType")
-            };
-
-            recs.load(GETML2, parms.MapToDictionary());
+            recs.load(GETML, parms.MapToDictionary());
             return XcelsiusFormat.ToXML(recs);
         }
     }
