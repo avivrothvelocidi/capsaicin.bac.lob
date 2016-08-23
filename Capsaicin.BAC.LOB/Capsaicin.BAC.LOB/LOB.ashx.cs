@@ -34,7 +34,7 @@ namespace Capsaicin.BAC.LOB
                     response = _service.GetCommitments(context.Request.Params);
                     break;
                 case "GETTOTALSPENDBYMONTH":
-                    //LOB.ashx?action=GETTOTALSPENDBYMONTH&time1=201601&time2=201602&time3=201603&time4=201604&time5=201605&time6=201606&time7=201607&time8=201608&time9=201609&time10=201610&time11=201611&time12=201612
+                    //LOB.ashx?action=GETTOTALSPENDBYMONTH&lob='GBM','GWIM'&division='GBM'&spendType='Actual'&time1=201601&time2=201602&time3=201603&time4=201604&time5=201605&time6=201606&time7=201607&time8=201608&time9=201609&time10=201610&time11=201611&time12=201612
                     response = _service.GetTotalSpendByMonth(context.Request.Params);
                     break;
                 case "GETTOTALSPENDBYMEDIUM":

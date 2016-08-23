@@ -8,6 +8,9 @@ namespace Capsaicin.BAC.LOB.ParameterModels
 {
     public class GetTotalSpendByMonthParameters : IProcParameters
     {
+        public string LOB { get; set; }
+        public string Division { get; set; }
+        public string SpendType { get; set; }
         public string Time1 { get; set; }
         public string Time2 { get; set; }
         public string Time3 { get; set; }
@@ -25,6 +28,9 @@ namespace Capsaicin.BAC.LOB.ParameterModels
         {
             Dictionary<string, string> parms = new Dictionary<string, string>();
 
+            parms.Add("LOB", LOB);
+            parms.Add("Division", Division);
+            parms.Add("SpendType", SpendType);
             parms.Add("Time1", Time1);
             parms.Add("Time2", Time2);
             parms.Add("Time3", Time3);

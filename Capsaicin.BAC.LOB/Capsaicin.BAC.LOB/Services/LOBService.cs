@@ -71,6 +71,9 @@ namespace Capsaicin.BAC.LOB.Services
             Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
             GetTotalSpendByMonthParameters parms = new GetTotalSpendByMonthParameters()
             {
+                LOB = reqParms.Get("lob"),
+                Division = reqParms.Get("division"),
+                SpendType = reqParms.Get("spendType"),
                 Time1 = reqParms.Get("time1"),
                 Time2 = reqParms.Get("time2"),
                 Time3 = reqParms.Get("time3"),
