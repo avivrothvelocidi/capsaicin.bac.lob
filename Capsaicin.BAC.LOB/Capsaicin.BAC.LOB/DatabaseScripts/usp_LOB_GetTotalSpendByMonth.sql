@@ -2,7 +2,7 @@
 	@LOB nvarchar(1000) = '',
 	@Division nvarchar(1000) = '',
 	@Campaign nvarchar(1000) = '',
-	@SpendType nvarchar(50) = '',
+	@SpendType nvarchar(50) = null,
 	@Time1 nvarchar(6),
 	@Time2 nvarchar(6),
 	@Time3 nvarchar(6),
@@ -59,12 +59,12 @@ BEGIN
 END
 
 DECLARE @spendTypeClause nvarchar(2000)
-SET @spendTypeClause = ' [spend_type] IS NOT  NULL '
+SET @spendTypeClause = ''
 
-IF @SpendType != ''
-BEGIN
+IF @SpendType = ''
+	SET @spendTypeClause = ' [spend_type] IS NOT  NULL '
+ELSE
 	SET @spendTypeClause = ' [spend_type] IN (' + @SpendType + ') '
-END
 
 DECLARE @command nvarchar(max)
 

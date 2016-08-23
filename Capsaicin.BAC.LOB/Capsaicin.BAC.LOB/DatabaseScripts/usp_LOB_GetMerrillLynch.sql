@@ -4,7 +4,7 @@
 	@LOB nvarchar(1000) = '',
 	@Division nvarchar(1000) = '',
 	@Campaign nvarchar(1000) = '',
-	@SpendType nvarchar(50) = '',
+	@SpendType nvarchar(50) = null,
 	@ResultType int = 1
 AS
 BEGIN

@@ -4,7 +4,7 @@
 	@LOB nvarchar(1000) = '',
 	@Division nvarchar(1000) = '',
 	@Campaign nvarchar(1000) = '',
-	@SpendType nvarchar(50) = '',
+	@SpendType nvarchar(50) = null,
 	@IsLOBGrouping bit = 1
 AS
 BEGIN
@@ -30,9 +30,11 @@ IF @Division != ''
 	SET @divisionClause = ' AND [division] IN (' + @Division + ') '
 
 DECLARE @spendTypeClause nvarchar(2000)
-SET @spendTypeClause = ' AND [spend_type] IS NOT  NULL '
+SET @spendTypeClause = ''
 
-IF @SpendType != ''
+IF @SpendType = ''
+	SET @spendTypeClause = ' AND [spend_type] IS NOT  NULL '
+ELSE
 	SET @spendTypeClause = ' AND [spend_type] IN (' + @SpendType + ') '
 
 DECLARE @dim nvarchar(50)
@@ -72,5 +74,4 @@ print @command
 exec sp_sqlexec @command
 
 END
-
 GO
