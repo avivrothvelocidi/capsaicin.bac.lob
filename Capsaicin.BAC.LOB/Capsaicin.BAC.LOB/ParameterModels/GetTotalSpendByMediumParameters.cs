@@ -6,17 +6,17 @@ using Capsaicin.BAC.LOB.Interfaces.ParameterModels;
 
 namespace Capsaicin.BAC.LOB.ParameterModels
 {
-    public class GetTotalSpendByMediumParameters : IProcParameters
+    public class GetTotalSpendByMediumParameters : AllFilterParameters
     {
-	    public string Year {get;set;}
-        public string LOB { get; set; }
+	    public string Year { get; set; }
+        public string SpendType { get; set; }
 
-        public Dictionary<string, string> MapToDictionary()
+        public override Dictionary<string, string> MapToDictionary()
         {
             Dictionary<string, string> parms = new Dictionary<string, string>();
 
             parms.Add("Year", Year);
-            parms.Add("LOB", LOB);
+            parms.Add("SpendType", SpendType);
 
             return parms;
         }

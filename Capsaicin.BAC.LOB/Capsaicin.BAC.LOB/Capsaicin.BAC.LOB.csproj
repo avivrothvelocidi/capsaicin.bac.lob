@@ -80,6 +80,7 @@
     <Compile Include="ParameterModels\GetMLParameters.cs" />
     <Compile Include="ParameterModels\GetCampaignFilterParameters.cs" />
     <Compile Include="ParameterModels\GetDivisionFilterParameters.cs" />
+    <Compile Include="ParameterModels\AllFilterParameters.cs" />
     <Compile Include="ParameterModels\GetTopCampaignParameters.cs" />
     <Compile Include="ParameterModels\GetTitleParameters.cs" />
     <Compile Include="ParameterModels\MonthRangeParameters.cs" />

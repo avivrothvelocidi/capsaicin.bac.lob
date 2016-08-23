@@ -6,17 +6,22 @@ using Capsaicin.BAC.LOB.Interfaces.ParameterModels;
 
 namespace Capsaicin.BAC.LOB.ParameterModels
 {
-    public class GetTitleParameters : GetCampaignFilterParameters
+    public class GetTitleParameters : AllFilterParameters
     {
-        public string Campaign { get; set; }
+        private MonthRangeParameters monthParms;
+        public string StartMonth { get; set; }
+        public string EndMonth { get; set; }
 
-        public override Dictionary<string, string> MapToDictionary()
+        public GetTitleParameters()
         {
-            Dictionary<string, string> parms = base.MapToDictionary();
+            monthParms = new MonthRangeParameters();
+        }
 
-            parms.Add("Campaign", Campaign);
-
-            return parms;
+        public GetTitleParameters(MonthRangeParameters monthParms)
+        {
+            this.monthParms = monthParms;
+            this.StartMonth = this.monthParms.StartMonth;
+            this.EndMonth = this.monthParms.EndMonth;
         }
     }
 }

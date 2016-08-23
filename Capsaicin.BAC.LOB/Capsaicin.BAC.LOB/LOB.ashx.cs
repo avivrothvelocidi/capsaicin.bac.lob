@@ -38,7 +38,8 @@ namespace Capsaicin.BAC.LOB
                     response = _service.GetTotalSpendByMonth(context.Request.Params);
                     break;
                 case "GETTOTALSPENDBYMEDIUM":
-                    //LOB.ashx?action=GetTotalSpendByMedium&year=<2016>&lob=<GWIM>
+                    //LOB>ashx?action=GetTotalSpendByMedium&year=<2016>&lob='GWIM','GBM'&division='GBM'&campaign='Global Rgn GBAM BBG-SEM'&spendType='ML1'
+                    //OLD  //LOB.ashx?action=GetTotalSpendByMedium&year=<2016>&lob=<GWIM>
                     response = _service.GetTotalSpendByMedium(context.Request.Params);
                     break;
                 case "GETYOY1":
