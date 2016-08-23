@@ -207,7 +207,9 @@ namespace Capsaicin.BAC.LOB.Services
             {
                 StartMonth = reqParms.Get("startMonth"),
                 EndMonth = reqParms.Get("endMonth"),
-                AllSpend = reqParms.Get("allSpend")
+                LOB = reqParms.Get("lob"),
+                Division = reqParms.Get("division"),
+                Campaign = reqParms.Get("campaign")
             };
 
             recs.load(GETTITLE, parms.MapToDictionary());

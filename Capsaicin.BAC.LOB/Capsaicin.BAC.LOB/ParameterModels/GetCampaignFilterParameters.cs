@@ -10,7 +10,7 @@ namespace Capsaicin.BAC.LOB.ParameterModels
     {
 	    public string Division {get;set;}
 
-        public Dictionary<string, string> MapToDictionary()
+        public override Dictionary<string, string> MapToDictionary()
         {
             Dictionary<string, string> parms = base.MapToDictionary();
 

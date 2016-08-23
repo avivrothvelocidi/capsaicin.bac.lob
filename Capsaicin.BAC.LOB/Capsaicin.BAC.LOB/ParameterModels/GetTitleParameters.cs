@@ -6,15 +6,15 @@ using Capsaicin.BAC.LOB.Interfaces.ParameterModels;
 
 namespace Capsaicin.BAC.LOB.ParameterModels
 {
-    public class GetTitleParameters: MonthRangeParameters
+    public class GetTitleParameters : GetCampaignFilterParameters
     {
-	    public string AllSpend {get;set;}
+        public string Campaign { get; set; }
 
-        public Dictionary<string, string> MapToDictionary()
+        public override Dictionary<string, string> MapToDictionary()
         {
             Dictionary<string, string> parms = base.MapToDictionary();
 
-            parms.Add("AllSpend", AllSpend);
+            parms.Add("Campaign", Campaign);
 
             return parms;
         }

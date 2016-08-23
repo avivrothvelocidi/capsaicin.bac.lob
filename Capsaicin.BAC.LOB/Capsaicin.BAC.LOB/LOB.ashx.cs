@@ -66,7 +66,7 @@ namespace Capsaicin.BAC.LOB
                     response = _service.GetTopCampaign(context.Request.Params);
                     break;
                 case "GETTITLE":
-                    //LOB.ashx?action=GetTitle&startMonth=201601&endMonth=201612&allSpend=1
+                    //lob.ashx?action=GetTitle&startMonth=201601&endMonth=201612&lob='GWIM','GBM'&division='GBM','GCB'&campaign='Global Rgn GBAM BBG-SEM'
                     response = _service.GetTitle(context.Request.Params);
                     break;
                 case "GETML1":
