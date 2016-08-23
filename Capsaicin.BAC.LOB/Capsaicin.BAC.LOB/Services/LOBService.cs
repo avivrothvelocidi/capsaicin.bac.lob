@@ -25,6 +25,7 @@ namespace Capsaicin.BAC.LOB.Services
         protected readonly string GETML = "usp_LOB_GetMerrillLynch";
         protected readonly string GETSPENDBYLOB = "usp_LOB_GetSpendByLOB";
         protected readonly string GETMLBREAKDOWN = "usp_LOB_GetMLBreakdown";
+        protected readonly string GETROLLUP = "usp_LOB_GetRollup";
 
         protected HttpContext _context;
 
@@ -276,6 +277,20 @@ namespace Capsaicin.BAC.LOB.Services
             };
 
             recs.load(GETMLBREAKDOWN, parms.MapToDictionary());
+            return XcelsiusFormat.ToXML(recs);
+        }
+
+        public string GetRollup(NameValueCollection reqParms)
+        {
+            string dbContext = GetDBContext();
+            Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
+
+            GetRollupParameters parms = new GetRollupParameters()
+            {
+                Year = reqParms.Get("year")
+            };
+
+            recs.load(GETROLLUP, parms.MapToDictionary());
             return XcelsiusFormat.ToXML(recs);
         }
     }

@@ -66,6 +66,7 @@
     <Content Include="DatabaseScripts\usp_LOB_GetTopCampaign.sql" />
     <Content Include="DatabaseScripts\usp_LOB_GetDivisionFilter.sql" />
     <Content Include="DatabaseScripts\usp_LOB_GetLOBFilter.sql" />
+    <Content Include="DatabaseScripts\usp_LOB_GetRollup.sql" />
     <Content Include="DatabaseScripts\usp_LOB_GetYOY2.sql" />
     <Content Include="DatabaseScripts\usp_LOB_GetYOY1.sql" />
     <Content Include="DatabaseScripts\usp_LOB_GetTotalSpendByMedium.sql" />
@@ -85,6 +86,7 @@
     <Compile Include="ParameterModels\GetSpendByLOBParameters.cs" />
     <Compile Include="ParameterModels\GetTopCampaignParameters.cs" />
     <Compile Include="ParameterModels\GetTitleParameters.cs" />
+    <Compile Include="ParameterModels\GetRollupParameters.cs" />
     <Compile Include="ParameterModels\MonthRangeParameters.cs" />
     <Compile Include="ParameterModels\GetLOBFilterParameters.cs" />
     <Compile Include="ParameterModels\GetYOY2Parameters.cs" />
