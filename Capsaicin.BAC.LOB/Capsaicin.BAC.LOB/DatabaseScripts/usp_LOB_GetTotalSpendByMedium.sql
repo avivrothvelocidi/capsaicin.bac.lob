@@ -3,7 +3,7 @@
 	@LOB nvarchar(1000) = '<ALL>',
 	@Division nvarchar(1000) = '<ALL>',
 	@Campaign nvarchar(1000) = '<ALL>',
-	@SpendType nvarchar(6) = '<BOTH>'
+	@SpendType nvarchar(50) = '<BOTH>'
 AS
 BEGIN
 
