@@ -10,6 +10,7 @@ namespace Capsaicin.BAC.LOB.ParameterModels
     {
         public string LOB { get; set; }
         public string Division { get; set; }
+        public string Campaign { get; set; }
         public string SpendType { get; set; }
         public string Time1 { get; set; }
         public string Time2 { get; set; }
@@ -30,6 +31,7 @@ namespace Capsaicin.BAC.LOB.ParameterModels
 
             parms.Add("LOB", LOB);
             parms.Add("Division", Division);
+            parms.Add("Campaign", Campaign);
             parms.Add("SpendType", SpendType);
             parms.Add("Time1", Time1);
             parms.Add("Time2", Time2);

@@ -34,7 +34,7 @@ namespace Capsaicin.BAC.LOB
                     response = _service.GetCommitments(context.Request.Params);
                     break;
                 case "GETTOTALSPENDBYMONTH":
-                    //LOB.ashx?action=GETTOTALSPENDBYMONTH&lob='GBM','GWIM'&division='GBM'&spendType='Actual'&time1=201601&time2=201602&time3=201603&time4=201604&time5=201605&time6=201606&time7=201607&time8=201608&time9=201609&time10=201610&time11=201611&time12=201612
+                    //LOB.ashx?action=GETTOTALSPENDBYMONTH&lob='GBM','GWIM'&division='GBM'&campaign='Global Rgn GBAM BBG-SEM'&spendType='Actual'&time1=201601&time2=201602&time3=201603&time4=201604&time5=201605&time6=201606&time7=201607&time8=201608&time9=201609&time10=201610&time11=201611&time12=201612
                     response = _service.GetTotalSpendByMonth(context.Request.Params);
                     break;
                 case "GETTOTALSPENDBYMEDIUM":
@@ -70,11 +70,11 @@ namespace Capsaicin.BAC.LOB
                     response = _service.GetTitle(context.Request.Params);
                     break;
                 case "GETML1":
-                    //LOB.ashx?action=GetML1&startMonth=201601&endMonth=201612&spendType=estimated&campaigns=%27Merrill%20EDGE%20Baseline%27
+                    //LOB.ashx?action=GetML1&startMonth=201601&endMonth=201612&spendType=estimated&campaigns='Merrill EDGE Baseline'
                     response = _service.GetML1(context.Request.Params);
                     break;
                 case "GETML2":
-                    //LOB.ashx?action=GetML2&startMonth=201601&endMonth=201612&spendType=estimated&campaigns=%27Merrill%20EDGE%20Baseline%27
+                    //LOB.ashx?action=GetML2&startMonth=201601&endMonth=201612&spendType=estimated&campaigns='Merrill EDGE Baseline'
                     response = _service.GetML2(context.Request.Params);
                     break;
                 default:

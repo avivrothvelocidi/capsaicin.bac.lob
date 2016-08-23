@@ -73,6 +73,7 @@ namespace Capsaicin.BAC.LOB.Services
             {
                 LOB = reqParms.Get("lob"),
                 Division = reqParms.Get("division"),
+                Campaign = reqParms.Get("campaign"),
                 SpendType = reqParms.Get("spendType"),
                 Time1 = reqParms.Get("time1"),
                 Time2 = reqParms.Get("time2"),
