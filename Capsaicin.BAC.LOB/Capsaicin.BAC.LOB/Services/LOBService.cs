@@ -23,6 +23,7 @@ namespace Capsaicin.BAC.LOB.Services
         protected readonly string GETTOPCAMPAIGN = "usp_LOB_GetTopCampaign";
         protected readonly string GETTITLE = "usp_LOB_GetTitle";
         protected readonly string GETML = "usp_LOB_GetMerrillLynch";
+        protected readonly string GETSPENDBYLOB = "usp_LOB_GetSpendByLOB";
 
         protected HttpContext _context;
 
@@ -239,6 +240,26 @@ namespace Capsaicin.BAC.LOB.Services
             };
 
             recs.load(GETML, parms.MapToDictionary());
+            return XcelsiusFormat.ToXML(recs);
+        }
+
+        public string GetSpendByLOB(NameValueCollection reqParms)
+        {
+            string dbContext = GetDBContext();
+            Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
+
+            GetSpendByLOBParameters parms = new GetSpendByLOBParameters()
+            {
+                StartMonth = reqParms.Get("startMonth"),
+                EndMonth = reqParms.Get("endMonth"),
+                LOB = reqParms.Get("lob"),
+                Division = reqParms.Get("division"),
+                Campaign = reqParms.Get("campaign"),
+                SpendType = reqParms.Get("spendType"),
+                IsLOBGrouping = reqParms.Get("isLOBGrouping")
+            };
+
+            recs.load(GETSPENDBYLOB, parms.MapToDictionary());
             return XcelsiusFormat.ToXML(recs);
         }
     }

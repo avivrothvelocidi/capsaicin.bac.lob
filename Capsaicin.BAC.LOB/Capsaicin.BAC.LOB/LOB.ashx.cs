@@ -70,8 +70,12 @@ namespace Capsaicin.BAC.LOB
                     response = _service.GetTitle(context.Request.Params);
                     break;
                 case "GETML":
-                    //action=GetML&startMonth=201601&endMonth=201612&spendType='Actual'&lob='GCSBB','GBM'&division='Digital Marketing Programs', 'Merrill Lynch'&resultType=1
+                    //LOB.ashx?action=GetML&startMonth=201601&endMonth=201612&spendType='Actual'&lob='GCSBB','GBM'&division='Digital Marketing Programs', 'Merrill Lynch'&resultType=1
                     response = _service.GetMerrillLynch(context.Request.Params);
+                    break;
+                case "GETSPENDBYLOB":
+                    //LOB.ashx?action=GetSpendByLOB&startMonth=201601&endMonth=201612&lob='GWIM','GBM'&division='GBM','GCB'&campaign='Global Rgn GBAM BBG-SEM'&spendType='Actual'&isLOBGrouping=1
+                    response = _service.GetSpendByLOB(context.Request.Params);
                     break;
                 default:
                     response = "Error: Unknown action";
