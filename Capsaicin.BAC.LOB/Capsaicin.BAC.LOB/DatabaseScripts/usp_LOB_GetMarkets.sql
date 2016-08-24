@@ -1,4 +1,11 @@
-﻿CREATE PROCEDURE [dbo].[usp_LOB_GetMarkets]
+﻿SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROCEDURE [dbo].[usp_LOB_GetMarkets]
+	@Year nvarchar(4),
 	@Market1 nvarchar(255)='',
 	@Market2 nvarchar(255)='',
 	@Market3 nvarchar(255)='',
@@ -38,8 +45,8 @@ Select [LOB],
 	sum(case when [Market] = @Market15 then [spend_to_display] else null end) as Market15,
 	sum(case when [Market] = @Market16 then [spend_to_display] else null end) as Market16
 from v_LOB_Output_Market_Detail 	
+where the_year = @Year
 group by [LOB] order by [LOB]
 
 END
-
 GO

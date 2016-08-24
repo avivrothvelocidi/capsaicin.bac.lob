@@ -86,7 +86,7 @@ namespace Capsaicin.BAC.LOB
                     response = _service.GetRollup(context.Request.Params);
                     break;
                 case "GETMARKETS":
-                    //LOB.ashx?action=GetMarkets&market1=BALTIMORE,%20MD
+                    //LOB.ashx?action=GetMarkets&year=2016&market1=BALTIMORE,%20MD
                     response = _service.GetMarkets(context.Request.Params);
                     break;
                 default:

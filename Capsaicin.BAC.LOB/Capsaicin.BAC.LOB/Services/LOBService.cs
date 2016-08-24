@@ -302,6 +302,7 @@ namespace Capsaicin.BAC.LOB.Services
 
             GetMarketsParameters parms = new GetMarketsParameters()
             {
+                Year = reqParms.Get("year"),
                 Market1 = reqParms.Get("market1"),
                 Market2 = reqParms.Get("market2"),
                 Market3 = reqParms.Get("market3"),

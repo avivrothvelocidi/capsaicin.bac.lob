@@ -8,6 +8,7 @@ namespace Capsaicin.BAC.LOB.ParameterModels
 {
     public class GetMarketsParameters : IProcParameters
     {
+        public string Year { get; set; }
 	    public string Market1 {get;set;}
         public string Market2 { get; set; }
         public string Market3 { get; set; }
@@ -29,6 +30,7 @@ namespace Capsaicin.BAC.LOB.ParameterModels
         {
             Dictionary<string, string> parms = new Dictionary<string, string>();
 
+            parms.Add("Year", Year);
             parms.Add("Market1", Market1);
             parms.Add("Market2", Market2);
             parms.Add("Market3", Market3);
