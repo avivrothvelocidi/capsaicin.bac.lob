@@ -103,10 +103,10 @@ namespace Capsaicin.BAC.LOB.Services
             GetTotalSpendByMediumParameters parms = new GetTotalSpendByMediumParameters()
             {
                 Year = reqParms.Get("year"),
-                LOB = reqParms.Get("lob"),
-                Division = reqParms.Get("division"),
-                Campaign = reqParms.Get("campaign"),
-                SpendType = "".Equals(reqParms.Get("spendType")) ? null : reqParms.Get("spendType")
+                LOB = String.IsNullOrEmpty(reqParms.Get("lob")) ? "<ALL>": reqParms.Get("lob"),
+                Division = String.IsNullOrEmpty(reqParms.Get("division")) ? "<ALL>" : reqParms.Get("division"),
+                Campaign = String.IsNullOrEmpty(reqParms.Get("campaign")) ? "<ALL>" : reqParms.Get("campaign"),
+                SpendType = String.IsNullOrEmpty(reqParms.Get("spendType")) ? "<BOTH>" : reqParms.Get("spendType")
             };
 
             recs.load(GETTOTALSPENDBYMEDIUM, parms.MapToDictionary());

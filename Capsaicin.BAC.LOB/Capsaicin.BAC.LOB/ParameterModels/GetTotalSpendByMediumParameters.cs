@@ -13,7 +13,7 @@ namespace Capsaicin.BAC.LOB.ParameterModels
 
         public override Dictionary<string, string> MapToDictionary()
         {
-            Dictionary<string, string> parms = new Dictionary<string, string>();
+            Dictionary<string, string> parms = base.MapToDictionary();
 
             parms.Add("Year", Year);
             parms.Add("SpendType", SpendType);
