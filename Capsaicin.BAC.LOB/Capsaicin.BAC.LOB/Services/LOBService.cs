@@ -27,6 +27,7 @@ namespace Capsaicin.BAC.LOB.Services
         protected readonly string GETMLBREAKDOWN = "usp_LOB_GetMLBreakdown";
         protected readonly string GETROLLUP = "usp_LOB_GetRollup";
         protected readonly string GETMARKETS = "usp_LOB_GetMarkets";
+        protected readonly string GETSPENDBYDIVISION = "usp_LOB_GetSpendByDivision";
 
         protected HttpContext _context;
 
@@ -322,6 +323,27 @@ namespace Capsaicin.BAC.LOB.Services
             };
 
             recs.load(GETMARKETS, parms.MapToDictionary());
+            return XcelsiusFormat.ToXML(recs);
+        }
+
+        public string GetSpendByDivision(NameValueCollection reqParms)
+        {
+            string dbContext = GetDBContext();
+            Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
+
+            GetSpendByDivisionParameters parms = new GetSpendByDivisionParameters()
+            {
+                QueryType = reqParms.Get("queryType"),
+                StartMonth = reqParms.Get("startMonth"),
+                EndMonth = reqParms.Get("endMonth"),
+                LOB = reqParms.Get("lob"),
+                Division = reqParms.Get("division"),
+                Campaign = reqParms.Get("campaign"),
+                SpendType = reqParms.Get("spendType"),
+                Year = reqParms.Get("year")
+            };
+
+            recs.load(GETSPENDBYDIVISION, parms.MapToDictionary());
             return XcelsiusFormat.ToXML(recs);
         }
     }

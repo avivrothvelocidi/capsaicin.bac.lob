@@ -6,11 +6,8 @@ using Capsaicin.BAC.LOB.Interfaces.ParameterModels;
 
 namespace Capsaicin.BAC.LOB.ParameterModels
 {
-    public class GetTotalSpendByMonthParameters : IProcParameters
+    public class GetTotalSpendByMonthParameters : AllFilterParameters
     {
-        public string LOB { get; set; }
-        public string Division { get; set; }
-        public string Campaign { get; set; }
         public string SpendType { get; set; }
         public string Time1 { get; set; }
         public string Time2 { get; set; }
@@ -25,13 +22,10 @@ namespace Capsaicin.BAC.LOB.ParameterModels
         public string Time11 { get; set; }
         public string Time12 { get; set; }
 
-        public Dictionary<string, string> MapToDictionary()
+        public override Dictionary<string, string> MapToDictionary()
         {
-            Dictionary<string, string> parms = new Dictionary<string, string>();
+            Dictionary<string, string> parms = base.MapToDictionary();
 
-            parms.Add("LOB", LOB);
-            parms.Add("Division", Division);
-            parms.Add("Campaign", Campaign);
             parms.Add("SpendType", SpendType);
             parms.Add("Time1", Time1);
             parms.Add("Time2", Time2);

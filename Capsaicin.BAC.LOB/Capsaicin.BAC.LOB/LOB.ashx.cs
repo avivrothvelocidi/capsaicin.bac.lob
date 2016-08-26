@@ -89,6 +89,10 @@ namespace Capsaicin.BAC.LOB
                     //LOB.ashx?action=GetMarkets&year=2016&market1=BALTIMORE,%20MD
                     response = _service.GetMarkets(context.Request.Params);
                     break;
+                case "GETSPENDBYDIVISION":
+                    //LOB.ashx?action=GetSpendByDivision&queryType=1&startMonth=201601&endMonth=201612&lob=%27GWIM%27,%27GCSBB%27&division=1&campaign=%27Goals%20Based%20Wealth%20Management%27,%27Institutional%20Retirement%27&spendType=&year=2016
+                    response = _service.GetSpendByDivision(context.Request.Params);
+                    break;
                 default:
                     response = "Error: Unknown action";
                     break;
