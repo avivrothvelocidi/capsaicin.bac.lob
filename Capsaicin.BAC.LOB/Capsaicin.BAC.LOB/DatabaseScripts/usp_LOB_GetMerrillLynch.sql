@@ -53,7 +53,7 @@ BEGIN
 			'AND [ML_Group] != ''XX'' ' +  
 			'AND [yearmonth] >= ''' + @StartMonth + ''' ' +
 			'AND [yearmonth] <= ''' + @EndMonth + ''' ' +
-			@lobClause + @divisionClause + @campaignClause + 
+			@campaignClause + 
 		'Group By [ML_Group] ' +
 		'Order By SUM([spend_to_display]) DESC '
 END
@@ -74,4 +74,5 @@ print @command
 exec sp_sqlexec @command
 
 END
+
 GO
