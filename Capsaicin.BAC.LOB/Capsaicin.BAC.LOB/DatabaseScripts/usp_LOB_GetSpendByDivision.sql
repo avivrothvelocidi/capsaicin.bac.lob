@@ -18,6 +18,8 @@ BEGIN
 
 SET NOCOUNT ON;
 
+DECLARE @command nvarchar(max)
+
 IF @QueryType = 1
 BEGIN
 	DECLARE @lobClause nvarchar(2000)
@@ -46,8 +48,6 @@ BEGIN
 	ELSE IF @SpendType is not null
 		SET @spendTypeClause = ' AND [spend_type] IN (' + @SpendType + ') '
 
-	DECLARE @command nvarchar(max)
-
 	SET @command = 'SELECT [division], SUM([spend_to_display]) as Spend ' +
 	'FROM LOB_OUTPUT_all_spend ' +
 	'WHERE 1=1 ' + @spendTypeClause + @lobClause + @divisionClause + @campaignClause +
@@ -60,16 +60,25 @@ BEGIN
 END
 ELSE
 BEGIN
-	IF @SpendType = ''
+	IF @SpendType = '' OR @SpendType IS NULL
 		SET @SpendType = '<BOTH>'
+	print 'Spend Type: ' + @SpendType
 
-	IF @LOB = ''
+	IF @LOB = '' OR @LOB IS NULL
 		SET @LOB = '<ALL>'
+	print 'LOB: ' + @LOB
 
-	IF @Campaign = ''
+	IF @Campaign = '' OR @Campaign IS NULL
 		SET @Campaign = '<ALL>'
 
-	EXEC sp_get_spend_per_medium @p_LOB = @LOB , @p_campaign = @Campaign , @p_year = @Year
+	print 'Campaign: ' + @Campaign
+
+	EXEC sp_get_spend_per_medium @p_LOB = @LOB, @p_campaign = @Campaign, @p_year = @Year
+
+	--SET @command = 'EXEC sp_get_spend_per_medium @p_LOB = ' + @LOB + ', @p_campaign = ' + @Campaign + ', @p_year = ' + @Year
+
+	--print @command
+	--exec sp_sqlexec @command
 END
 
 END
