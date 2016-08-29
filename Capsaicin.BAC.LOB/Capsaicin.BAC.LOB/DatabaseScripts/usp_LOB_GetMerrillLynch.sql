@@ -1,4 +1,10 @@
-﻿CREATE PROCEDURE [dbo].[usp_LOB_GetMerrillLynch]
+﻿SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[usp_LOB_GetMerrillLynch]
 	@StartMonth nvarchar(6),
 	@EndMonth nvarchar(6),
 	@LOB nvarchar(1000) = '',
@@ -33,9 +39,9 @@ DECLARE @spendTypeClause nvarchar(1000)
 SET @spendTypeClause = ''
 
 IF @SpendType = ''
-	SET @spendTypeClause = '[spend_type] IS NOT NULL '
-ELSE
-	SET @spendTypeClause = '[spend_type] IN (' + @SpendType + ') '
+	SET @spendTypeClause = ' AND [spend_type] IS NOT NULL '
+ELSE IF @SpendType IS NOT NULL
+	SET @spendTypeClause = ' AND [spend_type] IN (' + @SpendType + ') '
 
 DECLARE @command nvarchar(max)
 
@@ -43,7 +49,7 @@ IF @ResultType = 1
 BEGIN
 	SET @command = 'SELECT [ML_Group], SUM([spend_to_display]) as Spend ' +
 		'FROM v_LOB_OUTPUT_all_spend ' +
-		'WHERE ' + @spendTypeClause + 
+		'WHERE 1=1 ' + @spendTypeClause + 
 			'AND [ML_Group] != ''XX'' ' +  
 			'AND [yearmonth] >= ''' + @StartMonth + ''' ' +
 			'AND [yearmonth] <= ''' + @EndMonth + ''' ' +
@@ -56,15 +62,16 @@ IF @ResultType = 2
 BEGIN
 	SET @command = 'SELECT [Region], SUM([spend_to_display]) as Spend ' +
 	'FROM v_LOB_OUTPUT_all_spend ' +
-	'WHERE ' + @spendTypeClause + @lobClause + @divisionClause + @campaignClause +
+	'WHERE 1=1 ' + @spendTypeClause + @lobClause + @divisionClause + @campaignClause +
 		'AND [yearmonth] >= ''' + @StartMonth + ''' ' +
 		'AND [yearmonth] <= ''' + @EndMonth + ''' ' +
 	'Group By [Region] ' +
 	'Order By SUM([spend_to_display]) DESC '
 END
 
+print @command
+
 exec sp_sqlexec @command
 
 END
-
 GO
