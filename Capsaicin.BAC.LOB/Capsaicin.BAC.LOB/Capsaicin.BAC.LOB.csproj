@@ -21,6 +21,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -74,7 +75,9 @@
     <Content Include="DatabaseScripts\usp_LOB_GetTotalSpendByMedium.sql" />
     <Content Include="DatabaseScripts\usp_LOB_GetTotalSpendByMonth.sql" />
     <Content Include="DatabaseScripts\usp_LOB_GetCommitments.sql" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\ParameterModels\IProcParameters.cs" />
@@ -100,6 +103,7 @@
     <Compile Include="ParameterModels\GetCommitmentsParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\LOBService.cs" />
+    <Compile Include="Utilities\SafeNameValueCollection.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

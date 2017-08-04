@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using DataService;
 using Capsaicin.BAC.LOB.ParameterModels;
+using Capsaicin.BAC.LOB.Utilities;
 
 namespace Capsaicin.BAC.LOB.Services
 {
@@ -56,7 +57,7 @@ namespace Capsaicin.BAC.LOB.Services
             return XcelsiusFormat.ToXML(recs);
         }
 
-        public string GetCommitments(NameValueCollection reqParms)
+        public string GetCommitments(SafeNameValueCollection reqParms)
         {
             string dbContext = GetDBContext();
             Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
@@ -69,7 +70,7 @@ namespace Capsaicin.BAC.LOB.Services
             return XcelsiusFormat.ToXML(recs);
         }
 
-        public string GetTotalSpendByMonth(NameValueCollection reqParms)
+        public string GetTotalSpendByMonth(SafeNameValueCollection reqParms)
         {
             string dbContext = GetDBContext();
             Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
@@ -97,7 +98,7 @@ namespace Capsaicin.BAC.LOB.Services
             return XcelsiusFormat.ToXML(recs);
         }
 
-        public string GetTotalSpendByMedium(NameValueCollection reqParms)
+        public string GetTotalSpendByMedium(SafeNameValueCollection reqParms)
         {
             string dbContext = GetDBContext();
             Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
@@ -114,7 +115,7 @@ namespace Capsaicin.BAC.LOB.Services
             return XcelsiusFormat.ToXML(recs);
         }
 
-        public string GetYOY1(NameValueCollection reqParms)
+        public string GetYOY1(SafeNameValueCollection reqParms)
         {
             string dbContext = GetDBContext();
             Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
@@ -130,7 +131,7 @@ namespace Capsaicin.BAC.LOB.Services
             return XcelsiusFormat.ToXML(recs);
         }
 
-        public string GetYOY2(NameValueCollection reqParms)
+        public string GetYOY2(SafeNameValueCollection reqParms)
         {
             string dbContext = GetDBContext();
             Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
@@ -147,7 +148,7 @@ namespace Capsaicin.BAC.LOB.Services
             return XcelsiusFormat.ToXML(recs);
         }
 
-        public string GetLOBFilter(NameValueCollection reqParms)
+        public string GetLOBFilter(SafeNameValueCollection reqParms)
         {
             string dbContext = GetDBContext();
             Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
@@ -161,7 +162,7 @@ namespace Capsaicin.BAC.LOB.Services
             return XcelsiusFormat.ToXML(recs);
         }
 
-        public string GetDivisionFilter(NameValueCollection reqParms)
+        public string GetDivisionFilter(SafeNameValueCollection reqParms)
         {
             string dbContext = GetDBContext();
             Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
@@ -177,7 +178,7 @@ namespace Capsaicin.BAC.LOB.Services
             return XcelsiusFormat.ToXML(recs);
         }
 
-        public string GetCampaignFilter(NameValueCollection reqParms)
+        public string GetCampaignFilter(SafeNameValueCollection reqParms)
         {
             string dbContext = GetDBContext();
             Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
@@ -194,7 +195,7 @@ namespace Capsaicin.BAC.LOB.Services
             return XcelsiusFormat.ToXML(recs);
         }
 
-        public string GetTopCampaign(NameValueCollection reqParms)
+        public string GetTopCampaign(SafeNameValueCollection reqParms)
         {
             string dbContext = GetDBContext();
             Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
@@ -209,7 +210,7 @@ namespace Capsaicin.BAC.LOB.Services
             return XcelsiusFormat.ToXML(recs);
         }
 
-        public string GetTitle(NameValueCollection reqParms)
+        public string GetTitle(SafeNameValueCollection reqParms)
         {
             string dbContext = GetDBContext();
             Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
@@ -227,7 +228,7 @@ namespace Capsaicin.BAC.LOB.Services
             return XcelsiusFormat.ToXML(recs);
         }
 
-        public string GetMerrillLynch(NameValueCollection reqParms)
+        public string GetMerrillLynch(SafeNameValueCollection reqParms)
         {
             string dbContext = GetDBContext();
             Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
@@ -247,7 +248,7 @@ namespace Capsaicin.BAC.LOB.Services
             return XcelsiusFormat.ToXML(recs);
         }
 
-        public string GetSpendByLOB(NameValueCollection reqParms)
+        public string GetSpendByLOB(SafeNameValueCollection reqParms)
         {
             string dbContext = GetDBContext();
             Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
@@ -267,7 +268,7 @@ namespace Capsaicin.BAC.LOB.Services
             return XcelsiusFormat.ToXML(recs);
         }
 
-        public string GetMLBreakdown(NameValueCollection reqParms)
+        public string GetMLBreakdown(SafeNameValueCollection reqParms)
         {
             string dbContext = GetDBContext();
             Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
@@ -282,7 +283,7 @@ namespace Capsaicin.BAC.LOB.Services
             return XcelsiusFormat.ToXML(recs);
         }
 
-        public string GetRollup(NameValueCollection reqParms)
+        public string GetRollup(SafeNameValueCollection reqParms)
         {
             string dbContext = GetDBContext();
             Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
@@ -296,7 +297,7 @@ namespace Capsaicin.BAC.LOB.Services
             return XcelsiusFormat.ToXML(recs);
         }
 
-        public string GetMarkets(NameValueCollection reqParms)
+        public string GetMarkets(SafeNameValueCollection reqParms)
         {
             string dbContext = GetDBContext();
             Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
@@ -326,7 +327,7 @@ namespace Capsaicin.BAC.LOB.Services
             return XcelsiusFormat.ToXML(recs);
         }
 
-        public string GetSpendByDivision(NameValueCollection reqParms)
+        public string GetSpendByDivision(SafeNameValueCollection reqParms)
         {
             string dbContext = GetDBContext();
             Records recs = RecordsFactory.getRecordsObject(null, dbContext, _context);
